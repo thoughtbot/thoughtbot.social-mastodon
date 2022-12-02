@@ -18,7 +18,7 @@ Individuals asked to stop any harassing behavior are expected to comply immediat
 
 Existing employees are also subject to the anti-harassment policy. Violation will be handled internally in our usual manner.
 
-If anyone engages in harassing behavior, including maintainers, we may take appropriate action, up to and including warning the offender, escalation to their admin, and defederation.
+If anyone engages in harassing behavior, including maintainers, we will take appropriate action, up to and including warning the offender, escalation to their admin, and defederation.
 
 If you are being harassed, notice that someone else is being harassed, or have any other concerns, please report them immediately.
 
