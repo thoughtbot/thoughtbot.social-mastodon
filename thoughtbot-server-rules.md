@@ -1,0 +1,4 @@
+- This is a company instance so keep it safe for work.
+- No attacking gender, orientation, disability, physical appearance, body size, race, or religion.
+- No sexual images, deliberate intimidation, stalking, or unwelcome sexual attention.
+- Report these acts and we will take care of them.
