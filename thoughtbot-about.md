@@ -20,7 +20,9 @@ Existing employees are also subject to this anti-harassment policy. Violation wi
 
 If anyone engages in harassing behavior, including maintainers, we will take appropriate action, up to and including warning the offender, escalation to their admin, and defederation.
 
-If you are being harassed, notice that someone else is being harassed, or have any other concerns, please report them immediately.
+If you are being harassed, notice that someone else is being harassed, or have any other concerns, please report them immediately in your Mastodon app. You can do this by clicking `…` on the post, then "Report". All of these reports go to us; you may also choose to send an anonymous report to the other instance's moderation team.
+
+If you report a teammate to us, we will handle it with discretion as [documented in our Handbook](https://hub.thoughtbot.com/handbook/policies/conduct.md#reporting-and-discipline) (internal link).
 
 We expect everyone to follow these rules anywhere in thoughtbot’s project codebases, issue trackers, chatrooms, mailing lists, and social network.
 
