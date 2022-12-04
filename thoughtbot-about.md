@@ -16,7 +16,7 @@ Harassment includes offensive verbal comments related to gender identity, gender
 
 Individuals asked to stop any harassing behavior are expected to comply immediately.
 
-Existing employees are also subject to the anti-harassment policy. Violation will be handled internally in our usual manner.
+Existing employees are also subject to this anti-harassment policy. Violation will be handled internally in our usual manner.
 
 If anyone engages in harassing behavior, including maintainers, we will take appropriate action, up to and including warning the offender, escalation to their admin, and defederation.
 
