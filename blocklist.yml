@@ -1,0 +1,442 @@
+# Thanks very much to the following instances for their lists:
+#   * https://github.com/vulpineclub/vulpineclub.github.io/blob/master/_data/blocks.yml
+
+- domain: shitposter.club
+  severity: suspend
+  reason: haven for harassment
+
+- domain: freezepeach.xyz
+  severity: suspend
+  reason: haven for harassment
+
+- domain: sealion.club
+  severity: suspend
+  reason: haven for harassment
+
+- domain: noagendasocial.com
+  severity: suspend
+  date: 2017-04-16
+  reason: podcast dudebro brigade, no CoC, admin violations of our CoC
+  link: https://vulpine.club/@rey/87813
+
+- domain: pl.smuglo.li
+  severity: silence
+  reason: freeze peach haven
+
+- domain: p2px.me
+  severity: silence
+  reason: asshat ratio too high
+
+- domain: counter.social
+  severity: suspend
+  reason: respecting their desire to have a safe space for <span title="White, Christian, Straight, and Pure of Foreign Influence">True Americans</span>. [dzuk link](https://github.com/dzuk-mutant/blockchain/blob/master/list/instances/counter_social/counter_social.md)
+
+- domain: 2.distsn.org
+  severity: suspend
+  date: 2018-01-01
+  reason: runs a bot that scrapes user data
+  link: https://vulpine.club/@mxsparks_afterlight/99274660598169903
+
+- domain: masto.quad.moe
+  severity: suspend
+  date: 2018-01-07
+  reason: asshat/racist ratio too high (including admin previously banned from m.s)
+  link: https://vulpine.club/@mxsparks_afterlight/99311739060004510
+
+- domain: baraag.net
+  severity: suspend
+  date: 2018-10-09
+  reason: permits posting of artwork which is not legal in vulpine.club's legal jurisdiction (was silence 2018-02-28 -> 2018-10-09); upgraded to a suspend due to general problematicness
+  link: https://vulpine.club/@rey/99604671628655129
+
+- domain: gay.nsfw.onl
+  severity: silence
+  date: 2018-05-06
+  reason: untagged porn w/ public visibility
+
+- domain: pleroma.rareome.ga
+  severity: suspend
+  date: 2018-06-06
+  reason: instance does not honor blocks or privacy settings
+  link: https://vulpine.club/@rey/100160366521490428
+
+- domain: mastodon.macsnet.cz
+  severity: silence
+  date: 2018-08-29
+  reason: CoC violations by instance admin
+  link: https://vulpine.club/@mxsparks_afterlight/100636565192006998
+
+- domain: melalandia.tk
+  severity: suspend
+  date: 2018-09-01
+  reason: untagged loli porn w/ public visibility; freezepeach instance
+  link: https://vulpine.club/@rey/100653845596498076
+
+- domain: weeaboo.space
+  severity: suspend
+  date: 2018-09-02
+  reason: successor instance to masto.quad.moe (see above)
+  link: https://vulpine.club/@mxsparks_afterlight/100656813050141179
+
+- domain: raki.social
+  severity: suspend
+  date: 2018-09-06
+  reason: followbots / data mining
+  link: https://vulpine.club/@rey/100681277977536254
+
+- domain: pawoo.net
+  severity: suspend
+  date: 2018-09-09
+  reason: permits posting of artwork that violates vulpine.club's ToS
+  link: https://vulpine.club/@mxsparks_afterlight/100697966306007701
+
+- domain: freespeech.firedragonstudios.com
+  severity: suspend
+  date: 2018-09-12
+  reason: freezepeach instance; CoC violations by instance admin
+  link: https://vulpine.club/@mxsparks_afterlight/100713513538253967
+
+- domain: toot.love
+  severity: suspend
+  date: 2018-09-23
+  reason: freezepeach instance
+  link: https://vulpine.club/@mxsparks_afterlight/100777434627353036
+
+- domain: newjack.city
+  severity: suspend
+  date: 2018-10-09
+  reason: followbots / data mining
+  link: https://efdn.club/@norikawa/100850079431347387
+
+- domain: the.hedgehoghunter.club
+  severity: suspend
+  date: 2018-10-09
+  reason: freezepeach instance / single-user / transmisia
+  link: https://vulpine.club/@rey/100867643148895568
+
+- domain: albin.social
+  severity: suspend
+  date: 2018-10-21
+  reason: followbots / data mining
+  link: https://vulpine.club/@rey/100936073032220807
+
+- domain: soc.h4x.group
+  severity: suspend
+  date: 2018-11-02
+  reason: freezepeach
+  link: https://social.diskseven.com/@Jo/100997402454202640
+
+- domain: hitchhiker.social
+  severity: suspend
+  date: 2018-11-02
+  reason: freezepeach
+  link: https://occult.camp/@urwitchygothmom/101001988989764797
+
+- domain: freespeechextreme.com
+  severity: suspend
+  date: 2018-11-02
+  reason: freezepeach
+  link: https://occult.camp/@urwitchygothmom/101001988989764797
+
+- domain: freespeechextremist.com
+  severity: suspend
+  date: 2018-11-02
+  reason: freezepeach
+  link: https://occult.camp/@urwitchygothmom/101001988989764797
+
+- domain: fybuk.com
+  severity: suspend
+  date: 2018-11-02
+  reason: unusual activity, possibly data mining
+  link: https://yiff.life/@sky/100981141970487447
+
+- domain: quey.org
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: spacetime.social
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: misskey.nl
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: pixfed.com
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: toot.world
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: unsafe.co
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: thefederation.net
+  severity: suspend
+  date: 2018-11-02
+  reason: transmisia and harassment from admin w/ multiple instances (@Snder@quey.org)
+  link: https://mastodon.circlelinego.com/@mlubert/100946656510672428
+
+- domain: social.super-niche.club
+  severity: suspend
+  date: 2018-11-02
+  reason: loli
+  link: https://cybre.space/@pmosetc/100918456784523705
+
+- domain: gameliberty.club
+  severity: suspend
+  date: 2018-11-13
+  reason: transmisic harassment by instance admin
+  link: https://glasses.moe/@kaylee/101054137080289622
+
+- domain: mstdn.foxfam.club
+  severity: suspend
+  date: 2018-11-13
+  reason: admin spamming racist "news" links
+  link: https://vulpine.club/@mxsparks_afterlight/101065462089511357
+
+- domain: kneegrows.top
+  severity: suspend
+  date: 2018-11-13
+  reason: white supremacist haven
+  link: https://witches.live/@afroSwampMonster/101064175183811096
+
+- domain: greenlifeplus.net
+  severity: suspend
+  date: 2018-12-04
+  reason: Follow bots will be blocked on sight.
+  link: https://deadinsi.de/@sascha/101184531717262932
+
+- domain: bitcoinhackers.org
+  severity: suspend
+  date: 2018-12-11
+  reason: no admin contact information, no ToS, and at least one user that's enjoying that
+  link: https://bitcoinhackers.org/@Shekelcoin
+
+- domain: rapefeminists.network
+  severity: suspend
+  date: 2019-01-11
+  reason: domain name says it all, really
+  link: https://vulpine.club/@vulpineclub/101400122085582558
+
+- domain: neckbeard.xyz
+  severity: suspend
+  date: 2019-01-15
+  reason: successor instance to feminism.lgbt, which was suspended for violating its *registrar's* ToS
+  link: https://neckbeard.xyz/sjw
+
+- domain: wagesofsinisdeath.com
+  severity: suspend
+  date: 2019-01-15
+  reason: instance admin is either an actual nazi or likes to joke about being one
+  link: https://wagesofsinisdeath.com/notice/415468
+
+- domain: boop.link
+  severity: suspend
+  date: 2019-01-21
+  reason: transmisic single-user/single-issue instance
+  link: https://boop.link/notice/18500
+
+- domain: anime.website
+  severity: silence
+  date: 2019-01-24
+  reason: asshat ratio too high
+  link: https://vulpine.club/@vulpineclub/101472825008995710
+
+- domain: nomoresha.me
+  severity: suspend
+  date: 2019-02-24
+  reason: instance admin is a self-styled "white nazi knight"
+  link: https://nomoresha.me/users/xeno
+
+- domain: fedi.z0ne.moe
+  severity: silence
+  date: 2019-02-24
+  reason: harassment by instance admin
+  link: https://vulpine.club/@vulpineclub/101648895955757875
+
+- domain: pleroma.tuxcrafting.cf
+  severity: suspend
+  date: 2019-02-26
+  reason: instance admin violating our CoC
+  link: https://pleroma.tuxcrafting.cf/notice/9gBRumqMl6nvseclGK
+
+- domain: pleroma.weirdart.space
+  severity: suspend
+  date: 2019-03-06
+  reason: permits posting of media that is illegal in vulpine.club's jurisdiction
+  link: https://pleroma.weirdart.space/objects/be3cbced-67a7-441c-be3f-21ffeafc1e54
+
+- domain: waifuappreciation.club
+  severity: suspend
+  date: 2019-03-12
+  reason: no CoC, harassment by instance admin
+  link: https://waifuappreciation.club/@matrix07012
+
+- domain: sinblr.com
+  severity: suspend
+  date: 2019-03-17
+  reason: large amounts of untagged NSFW
+  link: https://vulpine.club/@vulpineclub/101774753961371093
+
+- domain: pl.pube.tk
+  severity: suspend
+  date: 2019-03-24
+  reason: their CoC bans "homosexual activity," so we're just helping them out
+  link: https://vulpine.club/@vulpineclub/101807991046516994
+
+- domain: daffodil-11.org
+  severity: suspend
+  date: 2019-03-24
+  reason: single-user instance running a followbot
+  link: https://vulpine.club/@vulpineclub/101807991046516994
+
+- domain: socialnetwork.ninja
+  severity: suspend
+  date: 2019-04-23
+  reason: single-user instance run by some cop
+  link: https://vulpine.club/@vulpineclub/102114494723724019
+
+- domain: social.librem.one
+  severity: suspend
+  date: 2019-05-07
+  reason: prevents users from reporting abuse
+  link: https://vulpine.club/@vulpineclub/102057624054868836
+
+- domain: pl.765racing.com
+  severity: suspend
+  date: 2019-05-14
+  reason: instance admin is a "national socialist"
+  link: https://vulpine.club/@vulpineclub/102114494723724019
+
+- domain: xn--6r8h.tk
+  severity: suspend
+  date: 2019-05-17
+  reason: advocating white supremacy
+  link: https://vulpine.club/@vulpineclub/102114494723724019
+
+- domain: aria.company
+  severity: suspend
+  date: 2019-05-17
+  reason: the fediverse is not your personal 8chan
+  link: https://vulpine.club/@vulpineclub/102114494723724019
+
+- domain: jimlunsford.com
+  severity: suspend
+  date: 2019-05-17
+  reason: successor instance to socialnetwork.ninja
+  link: https://vulpine.club/@vulpineclub/102114494723724019
+
+- domain: librem.one
+  severity: suspend
+  date: 2019-05-25
+  reason: see social.librem.one above
+  link: https://vulpine.club/@vulpineclub/102157806886800597
+
+- domain: socnet.supes.com
+  severity: suspend
+  date: 2019-05-25
+  reason: freezepeach
+  link: https://vulpine.club/@vulpineclub/102157815430915088
+
+- domain: mobile.co
+  severity: suspend
+  date: 2019-05-25
+  reason: freezepeach/copious bigotry, but we repeat ourselves
+  link: https://vulpine.club/@vulpineclub/102158071680962420
+
+- domain: libre.tube
+  severity: suspend
+  date: 2019-06-13
+  reason: hosting murder videos, racist content, ...
+  link: https://im-in.space/@kdy/102264474927313787
+
+- domain: beehub.org
+  severity: suspend
+  date: 2019-06-15
+  reason: misogyny, right-wing paranoia
+  link: https://vulpine.club/@vulpineclub/102276417313243406
+
+- domain: gab.ai
+  severity: suspend
+  date: 2019-06-19
+  reason: nazi furs fuck off ↙︎↙︎↙︎
+  link: https://elekk.xyz/@maloki/102300719242063029
+
+- domain: gab.com
+  severity: suspend
+  date: 2019-06-19
+  reason: nazi furs fuck off ↙︎↙︎↙︎
+  link: https://elekk.xyz/@maloki/102300719242063029
+
+- domain: pieville.net
+  severity: suspend
+  date: 2019-06-19
+  reason: haven for antisemitism & white supremacy
+  link: https://vulpine.club/@vulpineclub/102301489489045645
+
+- domain: social.quodverum.com
+  severity: suspend
+  date: 2019-06-19
+  reason: haven for white supremacy & general deplorability
+  link: https://vulpine.club/@vulpineclub/102301634244565563
+
+- domain: gab.best
+  severity: suspend
+  date: 2019-07-01
+  reason: we don't federate with Gab instances
+
+- domain: exited.eu
+  severity: suspend
+  date: 2019-07-01
+  reason: we don't federate with Gab instances
+
+- domain: zaitcev.nu
+  severity: suspend
+  date: 2019-07-01
+  reason: we don't federate with Gab instances
+
+- domain: rcsocial.net
+  severity: suspend
+  date: 2019-07-04
+  reason: incompatible TOS (“Christian free speech”)
+  link: https://using.rcsocial.net/
+
+- domain: catgirl.life
+  severity: suspend
+  date: 2019-07-07
+  reason: sealioning & pepes from instance admin
+  link: https://catgirl.life/notes/7to7j9wua8
+  
+- domain: networked.space
+  severity: suspend
+  date: 2019-07-07
+  reason: “low key freeze peach,” in their own words
+  link: https://networked.space/notice/9kaYITQnk0yc1B0yjQ
+
+- domain: afterlife.masto.host
+  severity: suspend
+  date: 2019-07-07
+  reason: single user instance created for block evasion
+  link: https://twitter.com/Coravinia/status/988749169614606336
+
+- domain: pl.wowana.me
+  severity: suspend
+  date: 2019-07-10
+  reason: single user instance, block evasion
+  link: https://fedi.z0ne.moe/notice/9khWdbHWIl93OmtDgO
