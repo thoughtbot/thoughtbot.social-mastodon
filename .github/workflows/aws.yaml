@@ -1,0 +1,23 @@
+name: AWS Build and Deploy
+
+on:
+  push:
+    branches:
+      - staging
+      - production
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  build-and-push:
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
+    name: build-and-push
+    concurrency: ${{ github.ref }}
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      build_role: arn:aws:iam::458591407913:role/github-actions-ecr-thoughtbot-mastodon
+      ecr_repo: thoughtbot/thoughtbot-mastodon

@@ -1,0 +1,83 @@
+name: ECR Build and Push
+
+on:
+  workflow_call:
+    inputs:
+      build_role:
+        type: string
+        required: true
+      ecr_repo:
+        type: string
+        required: true
+    outputs:
+      image_url:
+        description: Full URL of the ECR image to deploy
+        value: ${{ jobs.docker-build.outputs.image_url }}
+      version:
+        description: Version of the application to deploy
+        value: ${{ jobs.docker-build.outputs.version }}
+
+jobs:
+  docker-build:
+    runs-on:
+      - ubuntu-20.04
+
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
+
+    outputs:
+      image_url: ${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr_repo }}
+      version: ${{ steps.meta.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ inputs.build_role }}
+          mask-aws-account-id: 'no'
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Set Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr_repo }}
+          tags: type=sha,format=short
+
+      - name: Check for existing Docker image
+        id: check-image
+        env:
+          ECR_REPO: ${{ inputs.ecr_repo }}
+          IMAGE_URL: ${{ steps.meta.outputs.tags }}
+        run: |
+          IMAGE_TAG=$( echo "$IMAGE_URL" | cut -d ":" -f 2)
+          RESULT=$(aws ecr describe-images --repository-name="$ECR_REPO" --image-ids=imageTag="$IMAGE_TAG" > /dev/null && echo true || echo false)
+          echo "$IMAGE_TAG"
+          echo "$RESULT"
+          echo "image_exists=$RESULT" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push Docker image
+        id: docker_build
+        if: ${{ steps.check-image.outputs.image_exists == 'false' }}
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
