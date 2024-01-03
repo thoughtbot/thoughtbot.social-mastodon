@@ -1,0 +1,29 @@
+app:
+  instance: thoughtbot-staging
+
+config:
+  env:
+    data:
+      RAILS_ENV: production
+
+namespaces:
+  - name: thoughtbot-mastodon-staging
+    create: false
+    hosts:
+      - staging.thoughtbot.social
+    secretproviderclass:
+      workhands-staging:
+        #workhands-application:
+          #secretkeys:
+            #- FOO
+        redis-thoughtbot-mastodon-staging-redis-red:
+          secretkeys:
+            - REDIS_URL
+        rds-postgres-thoughtbot-mastodon-staging-postgres-blue:
+          secretkeys:
+            - DATABASE_URL
+    serviceaccount:
+      workhands:
+        create: false
+    virtualservice:
+      enabled: true
