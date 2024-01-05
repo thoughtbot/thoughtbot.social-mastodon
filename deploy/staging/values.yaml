@@ -20,7 +20,7 @@ namespaces:
           secretkeys:
             - DATABASE_URL
     serviceaccount:
-      thoughtbot:
+      thoughtbot-mastodon-staging-service:
         create: false
     virtualservice:
       enabled: true
