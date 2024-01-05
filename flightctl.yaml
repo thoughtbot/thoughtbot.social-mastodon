@@ -1,0 +1,64 @@
+apiVersion: flightctl.thoughtbot.com/v1beta1
+kind: Workspace
+
+releases:
+  - name: thoughtbot-staging
+    application: thoughtbot
+    context: thoughtbot-sandbox
+    environment: staging
+    manifests:
+      path: deploy/staging
+
+applications:
+- name: thoughtbot
+  manifests:
+    provider: kustomize
+    repo: git@github.com:thoughtbot/thoughtbot.social.git
+  provider: kubectl
+  params:
+    selector:
+      app.kubernetes.io/name: thoughtbot
+    console:
+      provider: exec
+      params:
+        selector:
+          app.kubernetes.io/component: console
+        container: main
+        command:
+        - bundle
+        - exec
+        - rails
+        - console
+
+contexts:
+- name: thoughtbot-sandbox
+  cluster: thoughtbot-sandbox-v1
+  namespace: thoughtbot-mastodon-staging
+  auth: thoughtbot-staging
+
+clusters:
+- name: thoughtbot-sandbox-v1
+  auth: thoughtbot-staging
+  provider: eks
+  params:
+    name: thoughtbot-sandbox-v1
+    region: us-east-1
+
+auth:
+- name: thoughtbot-staging
+  provider: aws-sso
+  params:
+    region: us-east-1
+    sso_account_id: '181682000713'
+    sso_region: us-east-1
+    sso_role_name: InfrastructureAdmin
+    sso_start_url: https://thoughtbot.awsapps.com/start
+
+- name: thoughtbot-production
+  provider: aws-sso
+  params:
+    region: us-east-1
+    sso_account_id: '651913466569'
+    sso_region: us-east-1
+    sso_role_name: InfrastructureAdmin
+    sso_start_url: https://thoughtbot.awsapps.com/start
