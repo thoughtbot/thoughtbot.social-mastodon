@@ -12,10 +12,7 @@ namespaces:
     hosts:
       - staging.thoughtbot.social
     secretproviderclass:
-      workhands-staging:
-        #workhands-application:
-          #secretkeys:
-            #- FOO
+      thoughtbot-staging:
         redis-thoughtbot-mastodon-staging-redis-red:
           secretkeys:
             - REDIS_URL
@@ -23,7 +20,7 @@ namespaces:
           secretkeys:
             - DATABASE_URL
     serviceaccount:
-      workhands:
+      thoughtbot:
         create: false
     virtualservice:
       enabled: true
