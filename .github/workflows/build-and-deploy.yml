@@ -1,0 +1,56 @@
+name: AWS Build and Deploy
+
+on:
+  push:
+    branches: ["staging", "production"]
+
+jobs:
+  build-and-push:
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
+    name: build-and-push
+    concurrency: ${{ github.ref }}
+    uses: ./.github/workflows/ecr.yml
+    with:
+      build_role: arn:aws:iam::458591407913:role/github-actions-ecr-thoughtbot-mastodon
+      ecr_repo: thoughtbot/thoughtbot-mastodon
+
+  deploy-staging:
+    if: ${{ endsWith(github.ref, 'staging') }}
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    name: deploy-staging
+    needs: build-and-push
+    concurrency: ${{ github.ref }}
+    uses: ./.github/workflows/eks.yml
+    with:
+      cluster_name: thoughtbot-sandbox-v1
+      deploy_role: arn:aws:iam::181682000713:role/thoughtbot-mastodon-deploy
+      image_url: ${{ needs.build-and-push.outputs.image_url }}
+      manifest_path: ./deploy/staging
+      namespace: thoughtbot-mastodon-staging
+      registry_account: '458591407913'
+      version: ${{ needs.build-and-push.outputs.version }}
+
+  deploy-production:
+    if: ${{ endsWith(github.ref, 'production') }}
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    name: deploy-production
+    needs: build-and-push
+    concurrency: ${{ github.ref }}
+    uses: ./.github/workflows/eks.yml
+    with:
+      cluster_name: thoughtbot-production-v1
+      deploy_role: arn:aws:iam::651913466569:role/thoughtbot-mastodon-deploy
+      image_url: ${{ needs.build-and-push.outputs.image_url }}
+      manifest_path: ./deploy/production
+      namespace: thoughtbot-mastodon-production
+      registry_account: '458591407913'
+      version: ${{ needs.build-and-push.outputs.version }}

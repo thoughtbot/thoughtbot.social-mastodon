@@ -1,0 +1,99 @@
+app:
+  # This image will be replaced with the latest application image during deploy.
+  image: ruby:2.7.8-slim
+
+config:
+  env:
+    data:
+      LANG: en_US.UTF-8
+      PORT: '3000'
+      RACK_ENV: production
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: enabled
+      RAILS_MAX_THREADS: '5'
+      RAILS_SERVE_STATIC_FILES: enabled
+      TZ: America/Los_Angeles
+
+defaults:
+  csiSecrets:
+  pod:
+    securityContext:
+      # This must match the uid in the Dockerfile
+      fsGroup: 1000
+
+# New services, such as additional Sidekiq workers, can be defined here. Use one
+# of the existing definitions as an example and modify the container arguments
+# to run your service.
+services:
+  web:
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      maxReplicas: 10
+    containers:
+      main:
+        http: {}
+        resources:
+          requests:
+            cpu: 128m
+            memory: 1024Mi
+    virtualservice:
+      headers: true
+      matchprefix: /
+      timeout: 30s
+    initContainers:
+      migrations:
+        name: migrations
+        args:
+          - rails
+          - db:abort_if_pending_migrations
+
+  console:
+    containers:
+      main:
+        args:
+          - 'sleep'
+          - 'infinity'
+        resources:
+          requests:
+            cpu: 128m
+            memory: 1024Mi
+    initContainers:
+      migrations:
+        name: migrations
+        args:
+          - rails
+          - db:abort_if_pending_migrations
+
+  worker-default:
+    containers:
+      main:
+        args: ['bundle', 'exec', 'sidekiq', '-C', 'config/sidekiq.yml', '-e', 'production']
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 2048Mi
+    initContainers:
+      migrations:
+        name: migrations
+        args:
+          - rails
+          - db:abort_if_pending_migrations
+
+jobs:
+  db-migrate:
+    backoffLimit: 1
+    containers:
+      main:
+        command:
+          - /bin/sh
+          - -c
+          - |
+            bundle exec rails db:migrate;
+            result="$?";
+            ruby -rnet/http -e 'Net::HTTP.post(URI.parse("http://localhost:15020/quitquitquit"), nil)';
+            exit "$result"
+        env:
+          - name: ENABLE_PROMETHEUS
+            value: 'false'
+    restartPolicy: Never

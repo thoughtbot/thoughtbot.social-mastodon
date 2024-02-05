@@ -1,0 +1,102 @@
+name: EKS Deploy
+
+on:
+  workflow_call:
+    inputs:
+      cluster_name:
+        type: string
+        required: true
+      deploy_role:
+        type: string
+        required: true
+      image_url:
+        type: string
+        required: true
+      manifest_path:
+        type: string
+        required: true
+      namespace:
+        type: string
+        required: true
+      registry_account:
+        type: string
+        required: true
+      version:
+        type: string
+        required: true
+
+jobs:
+  kustomize-and-deploy:
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+
+    runs-on:
+      - ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Add thoughtbot Helm repository
+        run: |
+          helm repo add \
+          thoughtbot-charts https://thoughtbot.github.io/helm-charts/
+
+      - name: Pull Helm Rails chart
+        run: |
+          helm pull thoughtbot-charts/helm-rails \
+          --version 0.1.13 --untar
+
+      - uses: azure/k8s-bake@v2.2
+        with:
+          renderEngine: 'helm'
+          helmChart: ./helm-rails
+          releaseName: workhands
+          overrideFiles: |
+            deploy/values.yaml
+            ${{ inputs.manifest_path }}/values.yaml
+          overrides: |
+            app.image:${{ inputs.image_url }}
+            app.version:${{ inputs.version }}
+          helm-version: 'v3.8.2'
+          silent: 'false'
+        name: bake helm template
+        id: bake
+
+      - uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.24.3'
+        id: install
+
+      - name: Assume deploy role
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ inputs.deploy_role }}
+
+      - name: Login to Amazon ECR
+        id: login_ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          registries: ${{ inputs.registry_account }}
+
+      - name: Create k8s config for use with deploy
+        run: |
+          aws eks update-kubeconfig \
+          --name ${{ inputs.cluster_name }} \
+          --region us-east-1
+
+      - name: Clean up any prior jobs
+        run: |
+          kubectl delete job --namespace ${{ inputs.namespace }} --all
+
+      - uses: azure/k8s-deploy@v4.2
+        with:
+          annotate-namespace: false
+          namespace: ${{ inputs.namespace }}
+          manifests: ${{ steps.bake.outputs.manifestsBundle }}
+          images: ${{ inputs.image_url }}:${{ inputs.version }}
+          strategy: basic
+          action: deploy
