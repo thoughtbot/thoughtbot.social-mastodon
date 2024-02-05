@@ -97,7 +97,6 @@ class Header extends PureComponent {
 
         content = (
           <>
-            {signupButton}
             <a href='/auth/sign_in' className='button button-tertiary'><FormattedMessage id='sign_in_banner.sign_in' defaultMessage='Login' /></a>
           </>
         );
